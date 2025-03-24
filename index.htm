@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muzaina's Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1E1E1E;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 30px;
+            font-size: 1.8em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInSlide 1.5s forwards;
+        }
+        header p {
+            font-size: 0.6em;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+        @keyframes fadeInSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: #444;
+            padding: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+        section {
+            padding: 60px 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .projects a, .certificates a {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .projects a:hover, .certificates a:hover {
+            background: white;
+            color: #333;
+            transform: scale(1.1);
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Muzaina Fathima
+        <p>AI Enthusiast | Content Writer</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#medium">Medium Articles</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <p>I am a second-year BSc AI student passionate about writing, journalism, coding, and innovation.</p>
+        <p>I have experience in content writing, copywriting, and journalism, allowing me to blend technical knowledge with effective communication.</p>
+        <p>My primary interests include AI research, data science, and building AI-driven applications to solve real-world problems.</p>
+        <p>I am always eager to learn and experiment with new technologies, and I aspire to bridge the gap between AI and real-life applications through innovative projects.</p>
+    </section>
+    <section id="projects" class="fade-in">
+        <h2>Projects</h2>
+        <div class="projects">
+            <a href="https://github.com/muzainafathima/Email-spam-filtering" target="_blank">Email Spam Filtering</a>
+            <a href="https://github.com/muzainafathima/Airline-Reservation" target="_blank">Airline Reservation System</a>
+        </div>
+    </section>
+    <section id="medium" class="fade-in">
+        <h2>Medium Articles</h2>
+        <p>Check out my latest AI and tech-related articles on Medium.</p>
+        <p><a href="https://medium.com/@muzainafathima" target="_blank" style="color: #FFD700;">medium.com/@muzainafathima</a></p>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:muzainafathima7@gmail.com" style="color: #FFD700;">muzainafathima7@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/muzainafathima" target="_blank" style="color: #FFD700;">github.com/muzainafathima</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/muzaina-fathima/" target="_blank" style="color: #FFD700;">linkedin.com/in/muzaina-fathima</a></p>
+        <p>Medium: <a href="https://medium.com/@muzainafathima" target="_blank" style="color: #FFD700;">medium.com/@muzainafathima</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2025 Muzaina Fathima</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.3 });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
